@@ -1,5 +1,5 @@
 import streamlit as st
-from customers import Customer
+
 
 # Set the title of the page
 st.title('Expected Gains')
@@ -13,7 +13,7 @@ col1, col2, col3, col4, col5, col6, col7,col8 = st.columns(8)
 
 # Input filed for cashing out
 #exit_position = col2.date_input('Exit Position')
-# expected exchnage rate 
+# expected exchange rate 
 #e_rate=""
 
 # Input your customer profile
