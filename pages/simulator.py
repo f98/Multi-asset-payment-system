@@ -2,7 +2,7 @@ import streamlit as st
 
 
 # Set the title of the page
-st.title('Expected Gains')
+st.title('Expected Gains!')
 # 
 
 # Create three columns for input fields
