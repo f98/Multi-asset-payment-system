@@ -1,5 +1,6 @@
 import streamlit as st  # import streamlit as st 
 st.write('Welcome to M.A.P.S simulator !') # write method i used to write
+pip install matplotlib.pyplot
 
 import streamlit as st
 import matplotlib.pyplot as plt
