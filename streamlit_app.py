@@ -127,9 +127,8 @@ if st.button("Apply") :
      st.write('Money I will receive as merchant ', Money_i_will_recieve_as_merchant)
      st.write('the excess money I will make  as a merchant ',merchant_excess_money)
    
- 
-  import plotly.graph_objs as go
-  import plotly.express as px
+import plotly.graph_objs as go
+import plotly.express as px
 
 # Plotting results
 fig = go.Figure()
