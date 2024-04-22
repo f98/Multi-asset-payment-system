@@ -127,26 +127,4 @@ if st.button("Apply") :
      st.write('Money I will receive as merchant ', Money_i_will_recieve_as_merchant)
      st.write('the excess money I will make  as a merchant ',merchant_excess_money)
    
-import plotly.graph_objs as go
-import plotly.express as px
-
-# Plotting results
-fig = go.Figure()
-labels = ['With Competitor', 'Fees with Competitor', 'Fees with MAPS', 'Excess Money']
-values = [value_sold, value_received_with_avg_competitor, competitor_fees, merchant_excess_money]
-colors = ['lightblue', 'lightcoral', 'lightsalmon', 'green']
-fig.add_trace(go.Bar(x=labels, y=values, marker_color=colors))
-fig.update_layout(title='Transaction Breakdown', yaxis_title='Dollars ($)')
-st.plotly_chart(fig)
-
-# Plot the payment package
-fig2 = px.pie(names=["Foreign currency", "Base currency", "Securities"],
-              values=[(selected_customer.euro_percentage * value_sold) / value_sold, 
-                      (selected_customer.dollar_percentage * value_sold) / value_sold, 
-                      shares],
-              color_discrete_sequence=['lightblue', 'lightcoral', 'lightgreen'],
-              labels={'label': 'Payment Package', 'value': 'Percentage'},
-              title='Payment Package',
-              hole=0.3)  # Set hole for a donut chart
-st.plotly_chart(fig2)
 
