@@ -3,7 +3,7 @@ st.write('Welcome to M.A.P.S simulator !') # write method i used to write
 
 
 import streamlit as st
-import matplotlib.pyplot as plt
+
 
 # Set the title of the page
 st.title('Expected Gains !')
@@ -128,23 +128,26 @@ if st.button("Apply") :
      st.write('the excess money I will make  as a merchant ',merchant_excess_money)
    
  
-  # Plotting results
-    fig, ax = plt.subplots()
-    labels = ['With Competitor', 'Fees with Competitor', 'Fees with MAPS', 'Excess Money']
-    values = [value_sold, value_received_with_avg_competitor, competitor_fees, merchant_excess_money]
-    colors = ['lightblue', 'lightcoral', 'lightsalmon', 'green']
-    ax.bar(labels, values, color=colors)
-    ax.set_ylabel('Dollars ($)')
-    ax.set_title('Transaction Breakdown')
-    st.pyplot(fig)
+  import plotly.graph_objs as go
+  import plotly.express as px
 
-   # Plot the payment package
-    fig2, ax2 = plt.subplots()  # Create a new figure
-    shares = (selected_customer.acquisation_price * selected_customer.number_of_shares) / value_sold
-    labels1 = ["Foreign currency", "Base currency", "Securities"]
-    values1 = [(selected_customer.euro_percentage * value_sold) / value_sold, 
-           (selected_customer.dollar_percentage * value_sold) / value_sold, shares]
-    colors1 = ['lightblue', 'lightcoral', 'lightgreen']
-    ax2.pie(values1, labels=labels1, colors=colors1,autopct='%1.1f%%')
-    ax2.set_title('Payment Package')
-    st.pyplot(fig2)
+# Plotting results
+fig = go.Figure()
+labels = ['With Competitor', 'Fees with Competitor', 'Fees with MAPS', 'Excess Money']
+values = [value_sold, value_received_with_avg_competitor, competitor_fees, merchant_excess_money]
+colors = ['lightblue', 'lightcoral', 'lightsalmon', 'green']
+fig.add_trace(go.Bar(x=labels, y=values, marker_color=colors))
+fig.update_layout(title='Transaction Breakdown', yaxis_title='Dollars ($)')
+st.plotly_chart(fig)
+
+# Plot the payment package
+fig2 = px.pie(names=["Foreign currency", "Base currency", "Securities"],
+              values=[(selected_customer.euro_percentage * value_sold) / value_sold, 
+                      (selected_customer.dollar_percentage * value_sold) / value_sold, 
+                      shares],
+              color_discrete_sequence=['lightblue', 'lightcoral', 'lightgreen'],
+              labels={'label': 'Payment Package', 'value': 'Percentage'},
+              title='Payment Package',
+              hole=0.3)  # Set hole for a donut chart
+st.plotly_chart(fig2)
+
