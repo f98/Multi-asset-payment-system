@@ -2,7 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 # Set the title of the page
-st.title('Expected Gains !')
+st.title('Expected Gains !!')
 st.write("This simulator presents the outcome of an interaction between three different agents representing three parties: a buyer, a seller, and MAPS. The buyer allocates their income across different asset classes, while the seller has a given time preference. The multi-asset payment system (MAPS) is required to provide optimal value transfer and collect its commission. This simulation provides clear insights into what will happen when the three agents representing the three parties (MAPS, the seller, the buyer) reach a Nash equilibrium for a given increase in currency depreciation or a given increase in securities value.")
 
 
