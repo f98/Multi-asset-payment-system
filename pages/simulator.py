@@ -1,5 +1,6 @@
 import streamlit as st
-import plotly.graph_objs as go
+import holoviews as hv
+from holoviews import opts
 
 # Set the title of the page
 st.title('Expected Gains !')
