@@ -82,9 +82,9 @@ cost_with_avg_competitor=(value_sold*0.02) +0.3
 # increase in securities value :
 increase_in_securities_value=st.slider('increase_in_securities_value',min_value=0.01,max_value=0.07,step=0.001)
 securities_sold = (selected_customer.acquisation_price  * (1 + increase_in_securities_value)) * selected_customer.number_of_shares
-st.write('test',securities_sold)
+
 rest = value_sold - securities_sold
-st.write('test2', rest)
+
 def package(rest, selected_customer, final_exchange_rate,securities_sold):
     
     
